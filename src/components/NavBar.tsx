@@ -21,6 +21,7 @@ import {
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import logo from "@/assets/logo.png";
 import { use } from "react";
+import Logo from "@/components/Logo";
 
 interface Props {
   children: React.ReactNode;
@@ -54,17 +55,7 @@ export function NavBar() {
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Link href="/">
-            {/*<Image src={
-            useColorModeValue("black_logo.png", "gray_logo.png")
-          } alt='logo' width={45} height={50} />*/}
-            <Text
-              textAlign={useBreakpointValue({ base: "center", md: "left" })}
-              fontFamily={"heading"}
-              fontWeight={"extrabold"}
-              color={useColorModeValue("gray.800", "white")}
-            >
-              Yt-Download
-            </Text>
+            <Logo/>
           </Link>
 
           <Flex alignItems={"center"}>
