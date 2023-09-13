@@ -1,6 +1,6 @@
 import { Text, useColorModeValue } from "@chakra-ui/react";
 
-export default function Logo() {
+export default function Logo({ ...props }) {
   return (
     <>
       {/*<Image src={
@@ -10,6 +10,7 @@ export default function Logo() {
         fontFamily={"heading"}
         fontWeight={"extrabold"}
         color={useColorModeValue("gray.800", "white")}
+        {...props}
       >
         Yt-Download
       </Text>

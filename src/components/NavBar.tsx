@@ -13,7 +13,7 @@ import {
   Text,
   useColorMode,
   useColorModeValue,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
 
 interface Props {
@@ -45,10 +45,14 @@ export function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Box
+        bg={useColorModeValue("rgba(255, 255, 255, 0.8)", "rgba(27,32,43,0.8)")}
+        px={4}
+        style={{ position: "fixed", width: "100%", height: "64px"}}
+      >
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Link href="/">
-            <Logo/>
+            <Logo />
           </Link>
 
           <Flex alignItems={"center"}>
@@ -80,6 +84,7 @@ export function NavBar() {
           </Flex>
         </Flex>
       </Box>
+      <Box h={16} />
     </>
   );
 }

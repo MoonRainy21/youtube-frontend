@@ -73,8 +73,9 @@ const SocialButton = ({
 export default function SmallWithLogoLeft() {
   return (
     <Box
-      bg={useColorModeValue("gray.50", "gray.900")}
-      color={useColorModeValue("gray.700", "gray.200")}
+      bg={useColorModeValue("black", "gray.900")}
+      color={useColorModeValue("white", "gray.200")}
+      style={{ bottom: 0, width:"100%" }}
     >
       <Container
         as={Stack}
@@ -85,7 +86,7 @@ export default function SmallWithLogoLeft() {
         justify={{ base: "left", md: "space-between" }}
         align={{ base: "left", md: "center" }}
       >
-        <Logo />
+        <Logo color={"white"}/>
         <Text>© 2023. All rights reserved</Text>
         <Stack direction={"row"} spacing={6}>
           <TwitterShareButton url={"https://yt.rainy21.com"}>
