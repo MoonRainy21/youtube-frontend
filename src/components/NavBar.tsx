@@ -1,27 +1,20 @@
+import Logo from "@/components/Logo";
+import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Flex,
-  Avatar,
-  Text,
   Button,
+  Flex,
+  Link,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
+  MenuList,
   Stack,
+  Text,
   useColorMode,
-  Center,
-  Image,
-  useBreakpointValue,
-  Link,
+  useColorModeValue,
+  useDisclosure
 } from "@chakra-ui/react";
-import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import logo from "@/assets/logo.png";
-import { use } from "react";
-import Logo from "@/components/Logo";
 
 interface Props {
   children: React.ReactNode;

@@ -1,24 +1,22 @@
 "use client";
 
+import Logo from "@/components/Logo";
 import {
-  Box,
-  chakra,
-  Container,
-  Stack,
-  Text,
-  useColorModeValue,
-  VisuallyHidden,
+    Box,
+    chakra,
+    Container,
+    Stack,
+    Text,
+    useColorModeValue,
+    VisuallyHidden,
 } from "@chakra-ui/react";
-import {
-  FaInstagram,
-  FaTwitter,
-  FaYoutube,
-  FaGithub,
-  FaShareAlt,
-} from "react-icons/fa";
 import { EmailShareButton, TwitterShareButton } from "next-share";
 import { ReactNode } from "react";
-import Logo from "@/components/Logo";
+import {
+    FaGithub,
+    FaShareAlt,
+    FaTwitter
+} from "react-icons/fa";
 
 const __Logo = (props: any) => {
   return (

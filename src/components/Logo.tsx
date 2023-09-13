@@ -1,4 +1,4 @@
-import { Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
+import { Text, useColorModeValue } from "@chakra-ui/react";
 
 export default function Logo() {
   return (
