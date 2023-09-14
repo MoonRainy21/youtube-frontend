@@ -2,21 +2,17 @@
 
 import Logo from "@/components/Logo";
 import {
-    Box,
-    chakra,
-    Container,
-    Stack,
-    Text,
-    useColorModeValue,
-    VisuallyHidden,
+  Box,
+  chakra,
+  Container,
+  Stack,
+  Text,
+  useColorModeValue,
+  VisuallyHidden,
 } from "@chakra-ui/react";
 import { EmailShareButton, TwitterShareButton } from "next-share";
 import { ReactNode } from "react";
-import {
-    FaGithub,
-    FaShareAlt,
-    FaTwitter
-} from "react-icons/fa";
+import { FaGithub, FaShareAlt, FaTwitter } from "react-icons/fa";
 
 const __Logo = (props: any) => {
   return (
@@ -75,7 +71,7 @@ export default function SmallWithLogoLeft() {
     <Box
       bg={useColorModeValue("black", "gray.900")}
       color={useColorModeValue("white", "gray.200")}
-      style={{ bottom: 0, width:"100%" }}
+      style={{ bottom: 0, width: "100%" }}
     >
       <Container
         as={Stack}
@@ -86,7 +82,7 @@ export default function SmallWithLogoLeft() {
         justify={{ base: "left", md: "space-between" }}
         align={{ base: "left", md: "center" }}
       >
-        <Logo color={"white"}/>
+        <Logo color={"white"} />
         <Text>© 2023. All rights reserved</Text>
         <Stack direction={"row"} spacing={6}>
           <TwitterShareButton url={"https://yt.rainy21.com"}>
