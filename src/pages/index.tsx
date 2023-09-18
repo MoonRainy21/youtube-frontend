@@ -60,37 +60,27 @@ export default function Home() {
             console.log(axiosResponse);
 
             const aElement = document.createElement("a");
-            // 위에서 생성한 aElement변수에 href속성에 넣을 데이터를 설정해준다.
             const blobFile = window.URL.createObjectURL(
               new Blob([axiosResponse.data])
             );
             aElement.href = blobFile;
 
-            // !중요! 파일명 설정 부분이다.
-            // download속성에는 확장자를 포함한 파일명 값이 들어간다.
-            // 서버에서 응답데이터를 binary 파일 데이터만 줄것이다.
-            // 파일명을 설정해야 할텐데 파일명은 Header의 값중 content-disposition에 들어있다.(없다면 백엔드개발자에게 넣어 달라고하자)
-            // content-disposition에 undefined로 나올 경우 서버쪽에서 해당 Header에 접근 할수 있도록 설정을 해줘야한다.(CORS)
-            // contentDisposition = attachment; filename=test.png
             const contentDisposition: string =
               axiosResponse.headers["content-disposition"];
             if (contentDisposition) {
-              // X이부분은 참고하지말자 너무 위험하다..X
               const filename = contentDisposition
                 .split(";")[1]
                 .trim()
                 .split("=");
-              // 파일명 설정
               const fileNameTrim = (name:string):string => {
                 if (name.startsWith('utf-8')) {
-                  // utf-8을 제거한다.
                   name = name.substring(7);
                 }
                 return name.replace(/"/g, "").replace(/'/g, "").replace('"', "");
               } 
               aElement.download = fileNameTrim(filename[1]);
-              console.log(filename[1]);
-              console.log(aElement.download);
+              // console.log(filename[1]);
+              // console.log(aElement.download);
             } else {
               console.log("content-disposition is undefined");
             }
