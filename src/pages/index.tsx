@@ -7,7 +7,7 @@ import {
   Input,
   Stack,
   Text,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { ChangeEvent, FormEvent, useState } from "react";
@@ -71,12 +71,17 @@ export default function Home() {
                 .split(";")[1]
                 .trim()
                 .split("=");
-              const fileNameTrim = (name:string):string => {
-                if (name.startsWith('utf-8')) {
+              // TODO: build a decent filename parser
+              // We need a endpoint that returns the filename
+              const fileNameTrim = (name: string): string => {
+                if (name.startsWith("utf-8")) {
                   name = name.substring(7);
                 }
-                return name.replace(/"/g, "").replace(/'/g, "").replace('"', "");
-              } 
+                return name
+                  .replace(/"/g, "")
+                  .replace(/'/g, "")
+                  .replace('"', "");
+              };
               aElement.download = fileNameTrim(filename[1]);
               // console.log(filename[1]);
               // console.log(aElement.download);
@@ -136,7 +141,9 @@ export default function Home() {
         >
           {error
             ? "Oh no an error occured! 😢 Please try again later."
-            : "Welcome to Yt-Download"}
+            : (state === "submitting" && "Downloading...") ||
+              (state === "success" && "Downloaded!") ||
+              (state === "initial" && "Welcome to YT-Downloader!")}
         </Text>
       </Container>
     </Container>
