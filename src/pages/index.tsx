@@ -1,17 +1,16 @@
-import { FormEvent, ChangeEvent, useState } from "react";
-import {
-  Stack,
-  FormControl,
-  Input,
-  Button,
-  useColorModeValue,
-  Heading,
-  Text,
-  Container,
-  Flex,
-} from "@chakra-ui/react";
 import { CheckIcon } from "@chakra-ui/icons";
+import {
+  Button,
+  Container,
+  FormControl,
+  Heading,
+  Input,
+  Stack,
+  Text,
+  useColorModeValue
+} from "@chakra-ui/react";
 import axios from "axios";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function Home() {
   const [link, setLink] = useState("");

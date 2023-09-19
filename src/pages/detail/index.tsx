@@ -1,20 +1,18 @@
 import {
   Box,
-  chakra,
-  Container,
-  Stack,
-  Text,
-  Image,
-  Flex,
-  VStack,
   Button,
+  Container,
+  Flex,
   Heading,
-  SimpleGrid,
-  StackDivider,
-  useColorModeValue,
-  VisuallyHidden,
+  Image,
   List,
   ListItem,
+  SimpleGrid,
+  Stack,
+  StackDivider,
+  Text,
+  VStack,
+  useColorModeValue
 } from '@chakra-ui/react'
 import { MdLocalShipping } from 'react-icons/md'
 
