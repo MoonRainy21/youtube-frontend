@@ -9,8 +9,10 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
-import axios from "axios";
+import "dotenv/config";
 import { ChangeEvent, FormEvent, useState } from "react";
+
+import axiosBackend from "@/helper/axiosBackend";
 
 export default function Home() {
   const [link, setLink] = useState("");
@@ -18,8 +20,7 @@ export default function Home() {
     "initial"
   );
   const [error, setError] = useState(false);
-
-  const BACKEND_URL = "https://youtube-backend.rainy21.com";
+  const [totpSecret, setTotpSecret] = useState<string>(process.env.NEXT_PUBLIC_TOTP_SECRET ?? "");
 
   return (
     <Container minHeight={"80vh"} marginTop={"10vh"}>
@@ -48,15 +49,12 @@ export default function Home() {
             setError(false);
             setState("submitting");
 
-            const axiosResponse = await axios.get(BACKEND_URL + "/yt/audio", {
+            const axiosResponse = await (await axiosBackend(totpSecret)).get("/yt/audio", {
               params: {
                 id: link,
-                otp: undefined,
               },
               responseType: "blob",
             });
-
-            console.log(axiosResponse);
 
             const aElement = document.createElement("a");
             const blobFile = window.URL.createObjectURL(
