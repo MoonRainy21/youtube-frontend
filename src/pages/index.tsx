@@ -20,7 +20,9 @@ export default function Home() {
     "initial"
   );
   const [error, setError] = useState(false);
-  const [totpSecret, setTotpSecret] = useState<string>(process.env.NEXT_PUBLIC_TOTP_SECRET ?? "");
+  const [totpSecret, setTotpSecret] = useState<string>(
+    process.env.NEXT_PUBLIC_TOTP_SECRET ?? ""
+  );
 
   return (
     <Container minHeight={"80vh"} marginTop={"10vh"}>
@@ -49,7 +51,9 @@ export default function Home() {
             setError(false);
             setState("submitting");
 
-            const axiosResponse = await (await axiosBackend(totpSecret)).get("/yt/audio", {
+            const axiosResponse = await (
+              await axiosBackend(totpSecret)
+            ).get("/yt/audio", {
               params: {
                 id: link,
               },
@@ -99,6 +103,24 @@ export default function Home() {
             }, 1000);
           }}
         >
+          <Input
+            variant={"solid"}
+            id={"totpSecret"}
+            type={"password"}
+            aria-label={"totpSecret"}
+            placeholder="Enter your password"
+            _placeholder={{
+              color: "gray.400",
+            }}
+            borderColor={useColorModeValue("gray.300", "gray.700")}
+            borderWidth={1}
+            required
+            value={totpSecret}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setTotpSecret(e.target.value)
+            }
+            width={"130px"}
+          />
           <FormControl>
             <Input
               variant={"solid"}
