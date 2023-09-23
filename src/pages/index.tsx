@@ -51,6 +51,12 @@ export default function Home() {
             setError(false);
             setState("submitting");
 
+            // Check if the totpSecret is instance of Base32
+            if (!/^[A-Z2-7]+=*$/i.test(totpSecret)) {
+              setError(true);
+              setState("initial");
+              return;
+            }
             const axiosResponse = await (
               await axiosBackend(totpSecret)
             ).get("/yt/audio", {
